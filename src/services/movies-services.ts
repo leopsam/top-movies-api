@@ -1,14 +1,25 @@
-import movieRepositories from "../repositories/movies-repositori.js";
+import movieRepositories from "../repositories/movies-repository.js";
+import { Movie, MovieUpdate } from "../protocols/movie.js";
 
-async function postMovie({ title, platform, genre, status }) {
-  await movieRepositories.create({ title, platform, genre, status });
+async function postMovie(movie: Movie) {
+  return await movieRepositories.create(movie);
 }
 
 async function getMovie() {
-  await movieRepositories.read();
+  return await movieRepositories.read();
+}
+
+async function putMovie(movie: MovieUpdate) {
+  return await movieRepositories.update(movie)
+}
+
+async function deleteMovie(id: number) {
+  return await movieRepositories.del(id);
 }
 
 export default {
   postMovie,
   getMovie,
+  putMovie,
+  deleteMovie
 };
