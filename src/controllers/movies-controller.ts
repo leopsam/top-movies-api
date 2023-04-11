@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { Movie, MovieUpdate } from "../protocols/movie.js";
 import movieService from "../services/movies-services.js";
 import { movieSchemma, updateMovieSchemma } from "../schemas/movie-schema.js";
-import { number } from "joi";
 
 async function createrMovie(req: Request, res: Response) {
   const newMovie = req.body as Movie;
